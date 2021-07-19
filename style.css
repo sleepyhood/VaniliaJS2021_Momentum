@@ -1,0 +1,71 @@
+.hidden{
+      color: #EFEFEF;
+    position:fixed;
+  top:50%;
+  text-align: center;
+  display: none;
+  color: tomato;
+}
+.background{
+  height:1200px; background-size:cover; background-image: img/0.jpg ;
+}
+
+body{
+  position: relative;
+  }
+
+.weatherClass{
+    right:5%;
+    top:5%;
+    color: #EFEFEF;
+    position:fixed;
+
+}
+.username{
+  color: #EFEFEF;
+}
+
+.todo-form{
+ text-align: center;
+}
+.todo-list{
+  text-align: center;
+  color: yellowgreen;
+}
+.li{
+  text-align: center;
+}
+#clock{
+  color: #EFEFEF;
+  display: block;
+  position:absolute;
+  margin: 0px auto;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+}
+#background {
+  /* position: relative;  */
+  /* top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%; */
+}
+#background img {
+  position: fixed; 
+  background-size: cover;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  /* min-width: 50%;
+  min-height: 50%; */
+  /* display: block; */
+}
+#greeting{
+  color: #EFEFEF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
