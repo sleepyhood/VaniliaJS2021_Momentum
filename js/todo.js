@@ -29,15 +29,15 @@ function painttoDo(newToDo){
   const li = document.createElement("li");
   li.id = newToDo.id;
   const span = document.createElement("span");
-  span.innerText = newToDo.text;
+  span.innerText = ` ${newToDo.text}`;
   const button = document.createElement("button");
 
   button.type = "button";
   //!! button의 기본 type = submit이므로 반드시! 명시(동시실행 방지)
-  button.innerText = "❌";
+  button.innerText = " X ";
   button.addEventListener("click", deleteToDo);
-  li.appendChild(span);
   li.appendChild(button);
+  li.appendChild(span);
 
   toDoList.appendChild(li);
 } 

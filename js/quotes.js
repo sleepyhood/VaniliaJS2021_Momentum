@@ -1,9 +1,5 @@
 const quotes = [
   {
-    quote: "Without continuous personal development, you are now all that you will ever become and hell starts when the person you are meets the person you could have been",
-    author: "Eli cohen"
-  },
-  {
     quote: "Action is the foundational key to all success.",
     author: "Pablo Picasso"
   },
@@ -22,5 +18,5 @@ const author = document.querySelector("#quote span:last-child")
 
 const todaysQuote = quotes[Math.floor(Math.random()*quotes.length)];
 
-quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;
+quote.innerText = `"${todaysQuote.quote}"`;
+author.innerText = `- ${todaysQuote.author} -`;

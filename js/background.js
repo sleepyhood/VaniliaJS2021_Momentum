@@ -8,7 +8,13 @@ bgImage.src = `img/${chosenImage}`;
 
 console.log(chosenImage);
 
-const background = document.getElementById("background");
+const background = document.querySelector(".background");
 
 background.appendChild(bgImage);
 document.body.appendChild(background);
+
+window.onload = function()
+{
+    document.body.style.backgroundImage = chosenImage;
+    
+};
