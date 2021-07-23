@@ -7,6 +7,7 @@ body{
   position:fixed;
   display: none;
 }
+
 .background {
   margin: auto;
   padding: 0%;
@@ -151,7 +152,7 @@ input[type=text]{
   flex-direction:column;  /* 수직 정렬 */
   justify-content: flex-start;  /*수평 여백을 주는 기준*/
   align-items: flex-start;  
-  flex-flow: bowrap;  /*공간 제약시 줄바꿈 여부*/
+  flex-flow: normal;  /*공간 제약시 줄바꿈 여부*/
 
   overflow: auto;
 }
