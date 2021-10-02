@@ -1,16 +1,26 @@
-body{
+body {
   margin: 0;
   min-height: 50%;
+  height: 100%;
+  color: #efefef;
+  -ms-overflow-style: none;
+
+  /* min-width: 700px; */
+  /* width: 100%; */
+
+  font-family: -apple-system;
 }
-.hidden{
-  color: #EFEFEF;
-  position:fixed;
+
+.hidden {
+  color: #efefef;
+  position: fixed;
   display: none;
 }
 
 .background {
   margin: auto;
   padding: 0%;
+
   /* justify-content: center;
   align-items: center; */
 }
@@ -21,8 +31,11 @@ body{
   background-size: cover;
   background: center;
 }
-.content{
-  
+.background img -webkit-scrollbar {
+  display: none;
+}
+
+.content {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -32,16 +45,14 @@ body{
   align-items: center;
 }
 
-.content #weather{
-    right:5%;
-    top:5%;
-    color: #EFEFEF;
-    position:fixed;
-    
+.content #weather {
+  right: 5%;
+  top: 5%;
+
+  position: fixed;
 }
 
-.content #clock{
-  color: #EFEFEF;
+.content #clock {
   font-size: 60px;
   font-weight: bold;
 
@@ -50,14 +61,17 @@ body{
   transform: translate(-50%, -50%);
   top: 40%;
   left: 50%;
+
+  opacity: 0.9;
 }
-#login-form{
+
+#login-form {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
   top: 55%;
 }
-#login-form #login-input{
+#login-form #login-input {
   position: relative;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -67,43 +81,46 @@ body{
   height: 60px;
   font-size: 25px;
   text-align: center;
-  
+
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: 3px solid #EFEFEF;
-  background-color:transparent;
+  border-bottom: 3px solid #efefef;
+  background-color: transparent;
 }
 
-#login-input::placeholder{
-  color: #EFEFEF;
+#login-input:hover {
+  font-size: 30px;
 }
 
-input[type=text]{
-    color: #EFEFEF;
-} 
+#login-input::placeholder {
+  color: #efefef;
+}
 
+input[type="text"] {
+  color: #efefef;
+}
 
-#login-inputBtn{
+#login-inputBtn {
   display: none;
 }
-.content #greeting{
-  color: #EFEFEF;
-    font-size: 25px;
+.content #greeting {
+  color: #efefef;
+  font-size: 35px;
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -50%);
 }
 
-.todo-form{
+.todo-form {
   text-align: center;
-  color: #EFEFEF;
+  color: #efefef;
   position: fixed;
   top: 60%;
   transform: translate(-50%, -50%);
 }
-.content .todo-form input{
+.content .todo-form input {
   text-align: center;
   position: fixed;
   left: 50%;
@@ -114,24 +131,31 @@ input[type=text]{
   height: 30px;
   font-size: 15px;
 
+  border-bottom: 3px solid #efefef;
   border-top: none;
   border-right: none;
   border-left: none;
-  border-bottom: 3px solid #EFEFEF;
-  background-color:transparent;
+  background-color: transparent;
+
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+/* .content .todo-form input:hover {
+  border-bottom: 3px solid #efefef;
+} */
+.todo-form input::placeholder {
+  border: none;
+  color: #efefef;
 }
 
-.todo-form input::placeholder{
-  color: #EFEFEF;
+.todo-form input[type="text"] {
+  color: #efefef;
 }
 
-.todo-form input[type=text]{
-    color: #EFEFEF;
-} 
+.todo-list {
+  min-height: 150px;
 
-.todo-list{
+  height: 100%;
   width: 350px;
-  height: 180px;
 
   position: fixed;
   left: 50%;
@@ -141,69 +165,77 @@ input[type=text]{
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  padding: 0px;
 
-  color: #EFEFEF;
-  list-style:none;
+  padding: 10px;
+  border-radius: 10px;
+
+  color: #efefef;
+  list-style: none;
 
   display: flex;
-  
+
   align-content: flex-start;
-  flex-direction:column;  /* 수직 정렬 */
-  justify-content: flex-start;  /*수평 여백을 주는 기준*/
-  align-items: flex-start;  
-  flex-flow: normal;  /*공간 제약시 줄바꿈 여부*/
+  flex-direction: column; /* 수직 정렬 */
+  justify-content: flex-start; /*수평 여백을 주는 기준*/
+  align-items: flex-start;
+  flex-flow: normal; /*공간 제약시 줄바꿈 여부*/
 
   overflow: auto;
+
+  /* 20210802 scroll snap update */
+  scroll-snap-type: y mandatory;
+
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* 공간 부족시 스크롤바 생성 */
-.todo-list::-webkit-scrollbar{
+.todo-list::-webkit-scrollbar {
   width: 10px;
   background-color: transparent;
-  
 }
 
-.todo-list::-webkit-scrollbar-thumb{
-  background-color: #EFEFEF;
+.todo-list::-webkit-scrollbar-thumb {
+  background-color: #efefef;
   border-radius: 5px;
 }
 
-li{
+li {
   text-decoration: none;
   text-align: flex-start;
   align-content: flex-start;
   top: 0%;
   margin-bottom: 5px;
+
+  /* 20210802 scroll snap update */
+  scroll-snap-align: center;
 }
 
-li span{
-    font-weight: bold;
+li span {
+  font-weight: bold;
 }
 
 /* GENERAL BUTTON STYLING */
 button,
 button::after {
   -webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
+  -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
-	transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 li button {
   background: none;
   border-radius: 5px; /*가장자리 기울기 */
-	color: #EFEFEF;
-  border: 2.5px solid #EFEFEF;
+  color: #efefef;
+  border: 2.5px solid #efefef;
   font-weight: bold;
   display: inline;
-    
+  cursor: pointer;
 }
 
 li button:hover {
-  background: #EFEFEF;
+  background: #efefef;
   color: rgba(30, 22, 54, 0.6);
-  
 }
 
 button::after {
@@ -219,12 +251,56 @@ button:hover:after {
   top: 0;
   width: 100%;
 }
+@media screen and (max-width: 980px) {
+  .content #quote {
+    display: none;
+  }
+}
+@media screen and (min-width: 980px) {
+  .content #quote {
+    text-align: center;
+    color: #efefef;
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
 
-.content #quote{
-  text-align: center;
-  color: #EFEFEF;
-  position: fixed;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* 2021.10.01 코로나 관련 업데이트 */
+@media screen and (max-width: 980px) {
+  .content .covidInfo {
+    display: none;
+  }
+}
+@media screen and (min-width: 980px) {
+  .content .covidInfo {
+    position: fixed;
+    left: 5%;
+    top: 80%;
+
+    /* transform: translate(-50%, 0%);*/
+
+    padding: 10px;
+
+    /* border-bottom: 3px solid #efefef;
+    border-top: 3px solid #efefef; */
+    border-radius: 10px;
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+
+    cursor: pointer;
+    opacity: 0.8;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  .content .covidInfo:hover {
+    opacity: 1;
+  }
+}
+
+.weather span {
+  letter-spacing: -7px;
 }

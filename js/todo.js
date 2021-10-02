@@ -7,25 +7,24 @@ const TODOS_KEY = "todos";
 let toDos = [];
 // 새로운 항목이 추가되어도 이전항목이 남아있어야함
 
-function saveToDos(){
+function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-function deleteToDo(event){
+function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
-  toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   // 클릭한 li.id와 다른 toDo는 남길것
   // toDO의id는 numeber, li.id는 string
-  
+
   saveToDos();
 }
-// filter 함수는 제외함수 
+// filter 함수는 제외함수
 // false를 리턴받으면 해당 array는 제외
 
 //기존에는  text=> 현재는 object
-function painttoDo(newToDo){
-
+function painttoDo(newToDo) {
   const li = document.createElement("li");
   li.id = newToDo.id;
   const span = document.createElement("span");
@@ -40,19 +39,19 @@ function painttoDo(newToDo){
   li.appendChild(span);
 
   toDoList.appendChild(li);
-} 
+}
 
-function handleToDoSubmit(event){
+function handleToDoSubmit(event) {
   event.preventDefault();
 
   const newToDo = toDoInput.value;
-  toDoInput.value="";
+  toDoInput.value = "";
   //console.log(toDoInput.value);
 
   const newToDoObj = {
     text: newToDo,
     id: Date.now(),
-  }//object 형태로 저장(중복방지)
+  }; //object 형태로 저장(중복방지)
 
   toDos.push(newToDoObj);
   painttoDo(newToDoObj);
@@ -60,14 +59,12 @@ function handleToDoSubmit(event){
   saveToDos();
 }
 
-toDoForm.addEventListener('submit', handleToDoSubmit);
-
+toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
-if(savedToDos!==null){
+if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(painttoDo);
 }
-
